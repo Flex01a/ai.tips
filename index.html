@@ -83,9 +83,14 @@ const tipBtn = document.getElementById("tip-btn");
 const tipOutput = document.getElementById("tip-output");
 
 tipBtn.addEventListener("click", () => {
-	const randomIndex = Math.floor(Math.random() * tips.length);
-	const tip = tips[randomIndex];
-	tipOutput.textContent = tip;
+	fetch('https://ai-tips-tests.flexdev.repl.co/')
+  .then(response => response.json())
+  .then(data => {
+    // Use the data to update the HTML element
+    document.getElementById('tip-output').innerHTML = data;
+  })
+  .catch(error => console.error(error));
+
 });
 </script>
 </body>

@@ -1,1 +1,92 @@
-<h1> Hi! </h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>AI Tips Generator Library</title>
+	<style>
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+header {
+	background-color: #333;
+	color: #fff;
+	padding: 20px;
+}
+
+main {
+	max-width: 800px;
+	margin: 20px auto;
+	padding: 0 20px;
+}
+
+h1, h2 {
+	margin: 0;
+}
+
+section {
+	margin-bottom: 20px;
+}
+
+button {
+	background-color: #4CAF50;
+	color: #fff;
+	padding: 10px;
+	border: none;
+	cursor: pointer;
+}
+
+button:hover {
+	background-color: #3e8e41;
+}
+
+footer {
+	background-color: #ddd;
+	padding: 10px;
+	text-align: center;
+}
+</style>
+</head>
+<body>
+	<header>
+		<h1>AI Tips Generator Library</h1>
+	</header>
+	<main>
+		<section>
+			<h2>Get AI Tips</h2>
+			<p>Click the button to get a random AI tip:</p>
+			<button id="tip-btn">Get Tip</button>
+			<p id="tip-output"></p>
+		</section>
+	</main>
+	<footer>
+		<p>&copy; 2023 AI Tips Generator Library</p>
+	</footer>
+	<script>
+const tips = [
+	"Use deep learning to detect anomalies in your data.",
+	"Consider using transfer learning to reduce the amount of data needed for training.",
+	"Regularization can help prevent overfitting in your models.",
+	"Ensemble learning can improve the accuracy of your predictions by combining multiple models.",
+	"Data preprocessing is a critical step in building effective machine learning models.",
+	"Feature engineering can greatly improve the performance of your models.",
+	"Consider using reinforcement learning for tasks that require decision-making over time.",
+	"Use cross-validation to estimate the generalization performance of your models.",
+	"Be cautious of bias in your data and models.",
+	"Explainability is an important consideration in building trustworthy AI systems.",
+];
+
+const tipBtn = document.getElementById("tip-btn");
+const tipOutput = document.getElementById("tip-output");
+
+tipBtn.addEventListener("click", () => {
+	const randomIndex = Math.floor(Math.random() * tips.length);
+	const tip = tips[randomIndex];
+	tipOutput.textContent = tip;
+});
+</script>
+</body>
+</html>

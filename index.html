@@ -83,13 +83,28 @@ const tipBtn = document.getElementById("tip-btn");
 const tipOutput = document.getElementById("tip-output");
 
 tipBtn.addEventListener("click", () => {
-	fetch('https://ai-tips-tests.flexdev.repl.co/')
-  .then(response => response.json())
-  .then(data => {
-    // Use the data to update the HTML element
+	// Create a new XMLHttpRequest object
+var xhr = new XMLHttpRequest();
+
+// Set up the request
+xhr.open('GET', 'https://ai-tips-tests.flexdev.repl.co/', true);
+
+// Define what happens when the response is loaded
+xhr.onload = function() {
+  // Check if the request was successful
+  if (xhr.status === 200) {
+    // Parse the response data into a JavaScript object
+    var data = JSON.parse(xhr.responseText);
+    // Update the HTML element with the response data
     document.getElementById('tip-output').innerHTML = data;
-  })
-  .catch(error => console.error(error));
+  } else {
+    document.getElementById('tip-output').innerHTML = 'Request failed.  Returned status of ' + xhr.status;
+  }
+};
+
+// Send the request
+xhr.send();
+
 
 });
 </script>
